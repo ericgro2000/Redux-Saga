@@ -6,11 +6,12 @@ import { asyncDecrementCreator, asyncIncrementCreator, decrementCreator, increme
 import { fetchUsers } from "./store/userReducer";
 import { CountState } from './store/countReducer';
 import { UserState } from './store/userReducer';
+import { AppDispatch } from './store/store';
 
 const App: React.FC = () => {
     const { count } = useSelector<{ countReducer: CountState }, CountState>(state => state.countReducer);
     const { users } = useSelector<{ userReducer: UserState }, UserState>(state => state.userReducer);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     return (
         <div className="app">

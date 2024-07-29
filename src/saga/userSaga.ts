@@ -28,7 +28,7 @@ interface User {
 const fetchUsersFromApi = () => fetch('https://jsonplaceholder.typicode.com/users?_limit=10')
 
 function* fetchUserWorker(): Generator<any, void, User[]> {
-    const data: Response = yield call(fetchUsersFromApi)
+    const data: any = yield call(fetchUsersFromApi)
     const json: User[] = yield call(() => data.json())
     yield put(setUsers(json))
 }
